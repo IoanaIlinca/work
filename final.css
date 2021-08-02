@@ -1,0 +1,522 @@
+#big-container {
+    display: grid;
+    grid-template-columns: repeat(12, calc(100% / 12));
+    grid-template-rows: 10%;
+    align-content: start;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    width: 100%;
+}
+
+
+header {
+    display: inherit;
+    position: fixed;
+    width: 100%; /* Full width */
+    grid-row: 1 / span 1;
+    background-color: white;
+    z-index: 10;
+}
+
+nav {
+    display: inherit;
+    
+    
+}
+
+.nav-image {
+    position: relative;
+    grid-column: 1 / span 1;
+    margin: 10% 15% 10% 15%;
+    height: 50px;
+    width: auto;
+    
+}
+
+.nav-elements {
+    justify-self: flex-end;
+    grid-column: 9 / span 4;
+    margin: 5% 10% 5% 10%;
+}
+
+.uppercase {   
+    text-transform: uppercase;
+}
+
+.orange-hover {
+    padding: 10px;
+
+}
+
+.orange-hover:hover {
+    background-color: rgb(212, 172, 126);
+}
+
+#first-container {
+    display: inherit;
+    grid-row: 2 / span 4;
+    grid-column: 1 / span 12;
+    background-color: rgb(238, 238, 238);
+    justify-items: center;
+}
+
+#first-text {
+    display: inherit;
+    grid-column: 1 / span 8;
+    align-content: center;
+    justify-content: center;
+    margin: 10%;
+}
+
+#first-image {
+    display: inherit;
+    grid-column: 9 / span 4;
+    width: 33.3vw;
+    z-index: 1;
+}
+
+#quote {
+    display: inherit;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    grid-row: 4 / span 2;
+    grid-column: 9 / span 2;
+    align-content: center;
+    
+}
+
+
+#quote-text {
+    background-color: black;
+    color: white;
+    align-content: center;
+    padding: 0% 20% 25% 15%;
+    margin: 0% 0% -50% -2%;
+    
+}
+
+#quote-mark {
+    color: rgb(141, 87, 37);
+    font-size: 700%;
+    
+}
+
+#q {
+    padding-top: -30%;
+}
+
+
+#second-container {
+        display: inherit;
+        grid-row: 7 / span 1;
+        grid-column: 1 / span 12;
+        justify-items: center;
+        padding: 10%;
+}
+
+.subtitle {
+    font-size: 175%;
+}
+
+.left {
+    justify-self: left;
+}
+
+.title {
+    font-size: 125%;
+    align-self: center;
+}
+
+.crayon {
+    color: rgb(141, 87, 37);
+    font-size: 150%;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.elem {
+    padding-right: 20%;
+}
+
+.elem1 {
+    display: inherit;
+    grid-column: 1 / span 3;
+}
+
+
+.elem2 {
+    display: inherit;
+    grid-column: 4 / span 3;
+}
+
+.elem3 {
+    display: inherit;
+    grid-column: 7 / span 3;
+}
+
+.elem4 {
+    display: inherit;
+    grid-column: 10 / span 3;
+}
+
+
+
+#third-container {
+    display: inherit;
+    grid-row: 8 / span 1;
+    grid-column: 1 / span 12;
+    justify-items: center;
+    padding: 0% 10% 10% 10%;
+}
+
+
+.card {
+    padding: 5%;
+    margin: 5% 5% 0% 0%;
+    background-color: rgb(238, 238, 238);
+}
+
+.card1 {
+display: inherit;
+grid-column: 1 / span 4;
+}
+
+
+.card2 {
+display: inherit;
+grid-column: 5 / span 4;
+}
+
+.card3 {
+display: inherit;
+grid-column: 9 / span 4;
+}
+
+.card4 {
+display: inherit;
+grid-column: 1 / span 4;
+}
+
+
+.card5 {
+    display: inherit;
+    grid-column: 5 / span 4;
+}
+    
+.card6 {
+    display: inherit;
+    grid-column: 9 / span 4;
+}
+
+
+#fourth-container {
+    display: inherit;
+    grid-row: 9 / span 2;
+    grid-column: 1 / span 12;
+    justify-items: center;
+    padding: 0% 10% 10% 10%;
+    grid-template-columns: repeat(12, calc(100% / 12));
+}
+
+.center {
+    align-self: center;
+    grid-column: 1 / span 12;
+}
+
+.texty-text {
+    display: inherit;
+    text-align: center;
+    grid-column: 4 / span 6;
+}
+
+
+#fifth-container {
+    display: inherit;
+    grid-row: 11 / span 1;
+    grid-column: 1 / span 12;
+    justify-items: center;
+    padding: 0% 10% 10% 9%;
+}
+
+
+.logo {
+    margin: 5% 0% 0% 0%;
+    filter: grayscale(100%);
+}
+
+.logo1 {
+display: inherit;
+grid-column: 1 / span 2;
+}
+
+
+.logo2 {
+display: inherit;
+grid-column: 3 / span 2;
+}
+
+.logo3 {
+display: inherit;
+grid-column: 5 / span 2;
+}
+
+.logo4 {
+display: inherit;
+grid-column: 7 / span 2;
+}
+
+
+.logo5 {
+    display: inherit;
+    grid-column: 9 / span 2;
+}
+    
+.logo6 {
+    display: inherit;
+    grid-column: 11 / span 2;
+}
+
+
+#sixth-container {
+    display: inherit;
+    grid-row: 12 / span 1;
+    grid-column: 1 / span 12;
+    justify-items: center;
+    padding: 0% 20% 0% 20%;
+    margin-bottom: 10%;
+    grid-template-columns: 50% 50%;
+}
+
+.first-half {
+    grid-column: 1 / span 1;
+    background-color: rgb(212, 172, 126);
+    padding: 5%;
+    width: 90%;
+    text-align: left;
+}
+
+.contact {
+    background-color: rgb(172, 139, 101);
+    padding: 2%;
+    border: none;
+    margin-top: 2%;
+}
+
+
+.second-half {
+    width: 100%;
+    grid-column: 2 / span 1;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    padding: 0%;
+    background-color: rgb(212, 172, 126);
+    border-style: none none none solid;
+    border-width: 3px;
+    border-color: rgba(66, 44, 19, 0.3);
+    padding: 5%;
+    width: 90%;
+    
+}
+
+a {
+    color: gray;
+}
+
+.other {
+    color: black;
+    font-weight: bold;
+}
+
+#g25 {
+    display: inherit;
+    grid-column: 1 / span 1;
+    align-self: center;
+}
+
+#g75 {
+    display: inherit;
+    color: gray;
+    grid-column: 2 / span 1;
+}
+
+.round {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    align-self: right;
+}
+
+footer {
+    display: grid;
+    grid-row: 13 / span 2;
+    grid-column: 1 / span 12;
+    align-content: center;
+    background-color: rgb(31, 18, 5);
+    color: white;
+    grid-template-columns: 50% 50%;
+}
+
+.f1 {
+    display: inline-block;
+    grid-column: 1 / span 1;
+    margin: 5% 5% 5% 10%;
+}
+
+.f2 {
+    display: inline-block;
+    grid-column: 2 / span 1;
+    margin: 5% 10% 5% 5%;
+    justify-self:right;
+}
+
+.orange {
+    text-decoration: underline;
+    color: rgb(214, 133, 41);
+}
+
+@media only screen and (max-width: 768px){
+    #big-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    #first-text {
+        display: inherit;
+        grid-column: 1 / span 2;
+    }
+    
+    #first-image {
+        display: inherit;
+        grid-column: 1 / span 2;
+        width: 100%;
+        height: auto;
+    }
+    
+    #quote {
+        display: inherit;
+        grid-column: 1 / span 1;
+        
+        
+    }
+    #quote-text {
+        margin-bottom: -55%;
+    }
+
+    
+
+    #second-container {
+        display: inherit;
+        grid-row: 7 / span 2;
+        grid-column: 1 / span 2;
+        justify-items: center;
+        padding: 10% 10% 10% 10%;
+    }
+
+    .elem {
+        padding: 10% 5% 10% 5%;
+    }
+    
+    .elem1 , .elem3{
+        display: inherit;
+        grid-column: 1 / span 1;
+    }
+    
+    
+    .elem2, .elem4{
+        display: inherit;
+        grid-column: 2 / span 1;
+    }
+    
+
+        
+
+    #third-container {
+        display: inherit;
+        grid-row: 9 / span 1;
+        grid-column: 1 / span 2;
+        justify-items: center;
+        padding: 0% 10% 10% 10%;
+    }
+
+
+    .card {
+        padding: 5%;
+        margin: 5% 5% 0% 0%;
+        background-color: rgb(238, 238, 238);
+    }
+
+    .card1, .card2, .card3, .card4, .card5, .card6 {
+    display: inherit;
+    grid-column: 1 / span 2;
+    }
+
+
+        
+    #fourth-container {
+        display: inherit;
+        grid-row: 10 / span 2;
+        grid-column: 1 / span 2;
+        justify-items: center;
+        padding: 5% 15% 10% 15%;
+        grid-template-columns: 50% 50%;
+    }
+
+    .center {
+        align-self: center;
+        grid-column: 1 / span 2;
+    }
+
+    .texty-text {
+        display: inherit;
+        text-align: center;
+        grid-column: 1 / span 2;
+    }
+
+        
+    #fifth-container {
+        display: inherit;
+        grid-row: 12 / span 1;
+        grid-column: 1 / span 2;
+        justify-items: center;
+        padding: 10% 10% 10% 9%;
+    }
+
+
+    .logo1, .logo3, .logo5 {
+    display: inherit;
+    grid-column: 1 / span 1;
+    }
+
+
+    .logo2, .logo4, .logo6 {
+    display: inherit;
+    grid-column: 2 / span 1;
+    }
+
+    #sixth-container {
+        grid-row: 13 / span 2;
+    }
+
+    .first-half {
+        grid-column: 1 / span 2;
+    }
+
+    .second-half {
+        grid-column: 1 / span 2;
+        border: none;
+    }
+
+        
+    footer {
+
+        grid-row: 15 / span 2;
+        
+        }
+}
