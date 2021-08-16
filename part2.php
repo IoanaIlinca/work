@@ -153,17 +153,97 @@ Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga
 
     echo implode(', ',bead_sort($array));
 
-
+    echo "<br>";
     echo "<br> 11. <br>";
     $array1 = array(0 => array(77, 87), 1 => array(23, 45));
     $array2 = array(0 => "w3resource", 1 => "com");
-    //var_dump(array_merge_recursive($array2, $array1));
+    $final = array();
+    $final[] = (array_merge(array($array2[0]), $array1[0]));
+    $final[] = (array_merge(array($array2[1]), $array1[1]));
+    var_dump($final);
+    echo "<br>";
     echo "<br> 12. <br>";
+    $array = array('A' => 'Blue', 'B' => 'Green', 'c' => 'Red');
+    foreach($array as $key => $value)
+    {
+        $array[$key] = strtolower($value);
+    }
+    var_dump($array);
+    $array = array('A' => 'Blue', 'B' => 'Green', 'c' => 'Red');
+    foreach($array as $key => $value)
+    {
+        $array[$key] = strtoupper($value);
+    }
+    echo "<br>";
+    var_dump($array);
+    echo "<br>";
     echo "<br> 13. <br>";
+    $number = 200;
+    function checkEnd($number) {
+        return ($number >= 250) ? throw new Exception() : "true";
+    }
+    function divisile($number) {
+
+         try {
+            echo "$number, ";
+            $number += 4;
+            checkEnd($number);
+            divisile($number);
+         }
+         catch (Exception) {
+             return;
+         }
+
+    }
+    divisile($number);
+    echo "<br>";
     echo "<br> 14. <br>";
+    $array = array ("abcd","abc","de","hjjj","g","wer");
+    $shortest = 1000;
+    $longest = -1;
+    foreach($array as $value) {
+        if (strlen($value) < $shortest)
+        {
+            $shortest = strlen($value);
+        }
+        if (strlen($value) > $longest)
+        {
+            $longest = strlen($value);
+        }
+    }
+    echo "the shortest is shortest $shortest and the longest is $longest <br>";
+
     echo "<br> 15. <br>";
-    echo "<br> 16. <br>";
+    for($counter = 0; $counter < 10; $counter++)
+    {
+        echo rand(11, 20) . ", ";
+    }
+    echo "<br> <br> 16. <br>";
+    echo max(array_keys($array)) . "<br>";
+
     echo "<br> 17. <br>";
+    function one() {
+        return  PHP_INT_MIN;
+    }
+    echo one() . "<br>";
     echo "<br> 18. <br>";
+    function floorWithPrecision($number, $decimals, $separator)
+    {
+        $hundreds = 1;
+        for($counter = 0; $counter < $decimals; $counter++)
+        {
+            $hundreds *= 10;
+        }
+        return number_format(floor(($number * $hundreds))/$hundreds, $decimals, $separator);
+    }
+
+    echo floorWithPrecision(1.155, 2, ".") . "<br>";
+    echo floorWithPrecision(100.25781, 4, "."). "<br>";
+    echo floorWithPrecision(-2.9636, 3, "."). "<br>";
     echo "<br> 19. <br>";
+    $color = array ( "color" => array ( "a" => "Red", "b" => "Green", "c" => "White"),
+    "numbers" => array ( 1, 2, 3, 4, 5, 6 ),
+    "holes" => array ( "First", 5 => "Second", "Third"));
+    echo $color["holes"][5] . "<br>";
+    echo $color["color"]['a'] . "<br>";
 ?>
