@@ -179,8 +179,9 @@ Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga
     echo "<br>";
     echo "<br> 13. <br>";
     $number = 200;
+    /*
     function checkEnd($number) {
-        return ($number >= 250) ? throw new Exception() : "true";
+         ($number >= 250) ? throw new Exception() : "true";
     }
     function divisile($number) {
 
@@ -195,7 +196,12 @@ Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga
          }
 
     }
-    divisile($number);
+    divisile($number);*/
+    $array = range(200, 250);
+    $array = array_filter($array, function ($val) {
+        return ($val % 4 === 0);
+    });
+    echo implode(", ", $array);
     echo "<br>";
     echo "<br> 14. <br>";
     $array = array ("abcd","abc","de","hjjj","g","wer");
@@ -246,4 +252,311 @@ Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga
     "holes" => array ( "First", 5 => "Second", "Third"));
     echo $color["holes"][5] . "<br>";
     echo $color["color"]['a'] . "<br>";
+
+    echo "<br><br> 40. <br>";
+    $array = array(3, 2, 5, 1, 4, 6, 10, 7);
+    sort($array);
+    var_dump($array);
+
+
+    echo "<br><br> 41. <br>";
+    function findNotUnique($array) {
+        $res = array();
+        for($counter = 0; $counter < count(array_keys($array)); $counter++) {
+            $index = array_keys($array)[$counter];
+            $element = $array[$index];
+            $copy = $array;
+            array_splice($copy, $counter, 1);
+            if(in_array($element, $copy)) {
+                if (!in_array($element, $res)) {
+                    $res[] = $element;
+                }
+
+            }
+
+        }
+        $array = $res;
+        return $array;
+    }
+    $array =  array ( "color" => array ( "a" => "Red", "b" => "Green", "c" => "White"),
+        "numbers" => array ( 1, 2, 3, 4, 5, 6 ),
+        "holes" => array ( "First", 5 => "Second", "Third", 5, 4));
+    $res = array();
+    flattenArray($array, $res);
+
+    print_r(findNotUnique($res));
+
+
+    echo "<br><br> 42. <br>";
+    function flattenAndUnique($array) {
+        $res = array();
+        flattenArray($array, $res);
+        $array = $res;
+        //var_dump($array);
+        $res = array();
+        for($counter = 0; $counter < count(array_keys($array)); $counter++) {
+            $index = array_keys($array)[$counter];
+            $element = $array[$index];
+            $copy = $array;
+            array_splice($copy, $counter, 1);
+            if(!in_array($element, $copy)) {
+                $res[] = $element;
+            }
+
+        }
+        $array = $res;
+        return $array;
+    }
+
+    $array =  array ( "color" => array ( "a" => "Red", "b" => "Green", "c" => "White"),
+        "numbers" => array ( 1, 2, 3, 4, 5, 6 ),
+        "holes" => array ( "First", 5 => "Second", "Third", 5, 4));
+    print_r(flattenAndUnique($array));
+
+    echo "<br><br> 43. <br>";
+    function unique($list1, $list2) {
+            $res = array();
+         $array1 = explode(",", $list1);
+         $array2 = explode(",", $list2);
+         foreach ($array1 as $value)
+         {
+            if(!in_array($value, $array2)) {
+                $res[] = $value;
+            }
+         }
+        foreach ($array2 as $value)
+        {
+            if(!in_array($value, $array1)) {
+                $res[] = $value;
+            }
+        }
+        return implode(", ", $res);
+    }
+    $info = array('coffee', 'brown', 'caffeine');
+    $info2 = array('milk', 'white', 'caffeine');
+
+    // Listing all the variables
+    $list = implode(",", $info);
+    $list2 = implode(",", $info2);
+    echo unique($list, $list2);
+
+    echo "<br><br> 44. <br>";
+    function removeDuplicate(&$array, $value) {
+        $found = false;
+        for($counter = 0; $counter < count(array_keys($array)); $counter++) {
+            $index = array_keys($array)[$counter];
+            if ($array[$index] === $value) {
+                if (!$found) {
+                    $found = true;
+                }
+                else {
+                    array_splice($array, $counter, 1);
+                }
+            }
+        }
+    }
+    $array = array("a"=>"red", "b"=>"green", "c"=>"blue", "green", "black", "green", "red");
+    removeDuplicate($array, "green");
+    print_r($array);
+
+    echo "<br><br> 45. <br>";
+    function compare($value1, $value2)
+    {
+        if ($value1 === $value2)
+        {
+            return 0;
+        }
+        return ($value1 > $value2) ? 1 : -1;
+    }
+
+    $array1=array("a"=>"red","b"=>"green","c"=>"blue");
+    $array2=array("a"=>"blue","b"=>"black","e"=>"blue");
+
+    $result = array_udiff($array1, $array2, "compare");
+    print_r($result);
+
+    echo "<br><br> 46. <br>";
+    function checkStrings($array) : bool {
+        foreach ($array as $value) {
+            if(!is_string($value)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    $array = array ( "a" => "Red", "b" => "Green", "c" => "White");
+    echo checkStrings($array);
+
+    echo "<br><br> 47. <br>";
+    $array = array ( "a" => "Red", "b" => "Green", "c" => "White");
+    function first($array)
+    {
+        return array(array_keys($array)[0], $array[array_keys($array)[0]]);
+    }
+    print_r(first($array));
+
+    echo "<br><br> 48. <br>";
+    $res = array();
+    function union($array1, $array2, &$res) {
+        $res = $array1;
+        foreach ($array2 as $value) {
+            if (!in_array($value, $res)) {
+                $res[] = $value;
+            }
+
+        }
+    }
+
+
+    $color = array ( "color" => array ( "a" => "Red", "b" => "Green", "c" => "White"),
+        "numbers" => array ( 1, 2, 3, 4, 5, 6 ),
+        "holes" => array ( "First", 5 => "Second", "Third"));
+    $color2 = array ( "color" => array ( "a" => "Blue", "b" => "Green", "c" => "White"),
+        "numbers" => array ( 1, 2, 3, 4, 8, 6 ),
+        "holes" => array ( "First", 5 => "Second", "Fourth"));
+    $result = array();
+    flattenArray($color, $result);
+    $color = $result;
+    $result = array();
+    flattenArray($color2, $result);
+    $color2 = $result;
+    union($color, $color2, $res);
+    var_dump($res);
+
+    echo "<br><br> 49. <br>";
+    $array = array('c1' => 'Red', 'c2' => 'Green', 'c3' => 'White', 'c4' => 'Black');
+
+    function letKeys($key) {
+        $array2 = array('c2', 'c4');
+        return in_array($key, $array2);
+    }
+    print_r(array_filter($array, "letKeys", ARRAY_FILTER_USE_KEY));
+
+    echo "<br><br> 50. <br>";
+    $array = array('c1' => 'Red', 'c2' => 'Green', 'c3' => 'White', 'c4' => 'Black');
+    echo $array[array_keys($array)[count(array_keys($array)) - 1]];
+
+    echo "<br><br> 51. <br>";
+    $array = array('c1' => 'Red', 'c2' => 'Green', 'c3' => 'White', 'c4' => 'Black');
+
+    function getRidOfKeys($key) {
+        $array2 = array('c2', 'c4');
+        return !in_array($key, $array2);
+    }
+    print_r(array_filter($array, "getRidOfKeys", ARRAY_FILTER_USE_KEY));
+
+    echo "<br><br> 52. <br>";
+    function value2($val): bool
+    {
+        return $val === 2;
+    }
+    function exercise($array) {
+        $result = array();
+        flattenArray($array, $result);
+        return array_filter($result, "value2");
+    }
+    $color = array ( "color" => array ( "a" => "Red", "b" => "Green", "c" => "White", 2),
+    "numbers" => array ( 1, 2, 3, 4, 5, 6 ),
+    "holes" => array ( "First", 2, 5 => "Second", "Third"));
+    print_r(exercise($color));
+
+    echo "<br><br> 53. <br>";
+    function value($val): bool
+    {
+        return $val !== 2;
+    }
+    $array = array(1, 2, 3, 4, 5);
+    print_r(array_filter($array, "value"));
+
+    echo "<br><br> 54. <br>";
+    function removeWhitespaces(&$array) {
+        for($counter = 0; $counter < count($array); $counter++) {
+            if (ctype_space($array[$counter])) {
+                array_splice($array, $counter, 1);
+            }
+        }
+    }
+    $array = array("A", "n", "a", " ", "a", "r", "e", " ", "m", "e", "r", "e", "\n");
+    removeWhitespaces($array);
+    var_dump($array);
+
+    echo "<br><br> 55. <br>";
+    function stringToArray($string, &$array) {
+        for($counter = 0; $counter < strlen($string); $counter++) {
+            if (ctype_space($string[$counter]) && $string[$counter] !== " ") {
+                continue;
+            }
+            $array[] = $string[$counter];
+        }
+    }
+    $result = [];
+    stringToArray("Ana are mere\n si prune", $result);
+    var_dump($result);
+
+     echo "<br><br> 56. <br>";
+     $result = array();
+     $partial_result = array();
+     for($counter = 0; $counter < 10; $counter++) {
+         $partial_result[] = 10;
+     }
+    for($counter = 0; $counter < 10; $counter++) {
+        $result[] = $partial_result;
+    }
+     var_dump($result);
+
+    echo "<br><br> 57. <br>";
+    $res = array();
+    function flattenArray($arr, &$res)
+    {
+        foreach($arr as $key => $value)
+        {
+            if(is_array($value))
+            {
+                flattenArray($value, $res);
+            }
+            else
+            {
+
+
+                array_push($res, $value);
+
+            }
+
+        }
+    }
+
+    function difference($array1, $array2, &$result) {
+        $copy = array();
+        flattenArray($array1, $copy);
+        $array1 = $copy;
+        $copy = array();
+        flattenArray($array2, $copy);
+        $array2 = $copy;
+        foreach ($array1 as $value) {
+            if (!in_array($value, $array2)) {
+                $result[] = $value;
+            }
+        }
+        foreach ($array2 as $value) {
+            if (!in_array($value, $array1)) {
+                $result[] = $value;
+            }
+        }
+    }
+    $color = array ( "color" => array ( "a" => "Red", "b" => "Green", "c" => "White"),
+    "numbers" => array ( 1, 2, 3, 4, 5, 6 ),
+    "holes" => array ( "First", 5 => "Second", "Third"));
+    $color2 = array ( "color" => array ( "a" => "Blue", "b" => "Green", "c" => "White"),
+        "numbers" => array ( 1, 2, 3, 4, 8, 6 ),
+        "holes" => array ( "First", 5 => "Second", "Fourth"));
+
+
+    difference($color, $color2, $res);
+    var_dump($res);
+
+    echo "<br><br> 58. <br>";
+    var_dump(array_combine(array('x', 'y', 'y'), array(10, 20, 30)));
+
+    echo "<br><br> 59. <br>";
+    echo array_product(range(1, 20));
 ?>
