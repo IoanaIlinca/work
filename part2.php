@@ -253,6 +253,89 @@ Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga
     echo $color["holes"][5] . "<br>";
     echo $color["color"]['a'] . "<br>";
 
+
+    echo "<br><br> 36. <br>";
+    $array = array ("abGDSd","aAbc","de","hjjj","g","wer");
+    function toCase($arr, &$lower, &$upper)
+    {
+        foreach($arr as $key => $value)
+        {
+            if(is_array($value))
+            {
+                toCase($value);
+            }
+            else
+            {
+
+
+                $lower[$key] = strtolower($value);
+                $upper[$key] = strtoupper($value);
+
+            }
+
+        }
+    }
+    $lower = array();
+    $upper = array();
+    toCase($array, $lower, $upper);
+    print_r($lower);
+    print_r($upper);
+
+
+    echo "<br><br> 37. <br>";
+    $count = 0;
+    $array = array(1, 2, 3, 2, 5, 6, 4, 2);
+    $value = 1;
+    foreach ($array as $item) {
+        if ($item === $value) {
+            $count++;
+        }
+    }
+    echo $count;
+
+    echo "<br><br> 38. <br>";
+    function elementsAsArraya ($array) {
+        for($counter = 0; $counter < count(array_keys($array)); $counter++) {
+            $index = array_keys($array)[$counter];
+            $array[$index] = array($array[$index]);
+        }
+        return $array;
+    }
+    $array = array ("abcd","abc","de","hjjj","g","wer");
+    print_r(elementsAsArraya($array));
+
+
+    echo "<br><br> 39. <br>";
+    function checkIntegers($array) : bool {
+        foreach ($array as $value) {
+            if(!is_int($value)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function findUnique($array) {
+        if(!checkStrings($array) && !checkIntegers($array)) {
+            return;
+        }
+        $res = array();
+        for($counter = 0; $counter < count(array_keys($array)); $counter++) {
+            $index = array_keys($array)[$counter];
+            $element = $array[$index];
+            $copy = $array;
+            array_splice($copy, $counter, 1);
+            if(!in_array($element, $copy)) {
+                $res[] = $element;
+            }
+
+        }
+        $array = $res;
+        return $array;
+    }
+    $array = array(3, 2, 5, 1, 4, 6, 10, 7, 3, 6);
+    print_r(findUnique($array));
+
+
     echo "<br><br> 40. <br>";
     $array = array(3, 2, 5, 1, 4, 6, 10, 7);
     sort($array);
